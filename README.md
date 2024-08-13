@@ -6,5 +6,5 @@ Clean installation from
 
     homebrew install neovim
 
-init.lua -> contains the kickstarter template with little to no modifications so far.
+init.lua -> contains the kickstarter template with little to no modifications so far.  
 **clangd** installed in Mason

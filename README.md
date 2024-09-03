@@ -8,4 +8,7 @@ Clean installation from
 ---
 **Terminal** -> WezTerm  
 **init.lua** -> contains the kickstarter template with little to no modifications so far.  
-**clangd** and **jdtls** installed with Mason
+**Plugins installed:**
+`Clangd
+Jdtls
+nvim-autopairs`

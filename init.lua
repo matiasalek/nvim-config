@@ -809,7 +809,7 @@ require("lazy").setup({
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},
-
+	--
 	-- Highlight todo, notes, etc in comments
 	{
 		"folke/todo-comments.nvim",

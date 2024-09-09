@@ -291,6 +291,12 @@ require("lazy").setup({
 		config = function()
 			require("nvim-tree").setup({})
 			vim.keymap.set("n", "<C-n>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+			vim.keymap.set(
+				"n",
+				"<leader>e",
+				":NvimTreeOpen<CR>",
+				{ noremap = true, silent = true, desc = "Open NvimTree" }
+			)
 		end,
 	},
 	-- LSP Plugins

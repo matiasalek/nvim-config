@@ -325,8 +325,30 @@ require("lazy").setup({
 			dap.listeners.before.event_exited.dapui_config = function()
 				dapui.close()
 			end
-			vim.keymap.set("n", "<Leader>dt", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
-			vim.keymap.set("n", "<Leader>dc", dap.continue, { desc = "Continue" })
+
+			vim.keymap.set("n", "<F5>", dap.continue, { desc = "Continue" })
+			vim.keymap.set("n", "<F10>", dap.step_over, { desc = "Step Over" })
+			vim.keymap.set("n", "<F11>", dap.step_into, { desc = "Step Into" })
+			vim.keymap.set("n", "<F12>", dap.step_out, { desc = "Step Out" })
+			vim.keymap.set("n", "<Leader>b", dap.toggle_breakpoint, { desc = "Toggle Breakpoint" })
+			vim.keymap.set("n", "<Leader>B", dap.set_breakpoint, { desc = "Set Breakpoint" })
+			vim.keymap.set("n", "<Leader>lp", dap.set_breakpoint, { desc = "Set Breakpoint" })
+			vim.keymap.set("n", "<Leader>dr", dap.repl.open, { desc = "Repl Open" })
+			vim.keymap.set("n", "<Leader>dl", dap.run_last, { desc = "Run Last" })
+			vim.keymap.set({ "n", "v" }, "<Leader>dh", function()
+				require("dap.ui.widgets").hover()
+			end, { desc = "Hover" })
+			vim.keymap.set({ "n", "v" }, "<Leader>dp", function()
+				require("dap.ui.widgets").preview()
+			end, { desc = "Preview" })
+			vim.keymap.set("n", "<Leader>df", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.frames)
+			end)
+			vim.keymap.set("n", "<Leader>ds", function()
+				local widgets = require("dap.ui.widgets")
+				widgets.centered_float(widgets.scopes)
+			end)
 		end,
 	},
 	-- LSP Plugins

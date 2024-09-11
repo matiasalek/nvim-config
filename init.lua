@@ -59,12 +59,6 @@ vim.opt.timeoutlen = 300
 vim.opt.splitright = true
 vim.opt.splitbelow = true
 
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
--- vim.opt.list = true
---vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-
 -- Preview substitutions live, as you type!
 vim.opt.inccommand = "split"
 
@@ -75,7 +69,6 @@ vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 
 -- [[ Basic Keymaps ]]
---  See `:help vim.keymap.set()`
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
@@ -84,10 +77,6 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
@@ -297,6 +286,40 @@ require("lazy").setup({
 				":NvimTreeOpen<CR>",
 				{ noremap = true, silent = true, desc = "Open NvimTree" }
 			)
+		end,
+	},
+	{
+		"romgrk/barbar.nvim",
+		config = function()
+			vim.g.barbar_auto_setup = false
+			local map = vim.api.nvim_set_keymap
+			local opts = { noremap = true, silent = true }
+
+			-- Move to previous/next
+			map("n", "<A-,>", "<Cmd>BufferPrevious<CR>", opts)
+			map("n", "<A-.>", "<Cmd>BufferNext<CR>", opts)
+
+			-- Re-order to previous/next
+			map("n", "<A-<>", "<Cmd>BufferMovePrevious<CR>", opts)
+			map("n", "<A->>", "<Cmd>BufferMoveNext<CR>", opts)
+
+			-- Goto buffer in position...
+			map("n", "<A-1>", "<Cmd>BufferGoto 1<CR>", opts)
+			map("n", "<A-2>", "<Cmd>BufferGoto 2<CR>", opts)
+			map("n", "<A-3>", "<Cmd>BufferGoto 3<CR>", opts)
+			map("n", "<A-4>", "<Cmd>BufferGoto 4<CR>", opts)
+			map("n", "<A-5>", "<Cmd>BufferGoto 5<CR>", opts)
+			map("n", "<A-6>", "<Cmd>BufferGoto 6<CR>", opts)
+			map("n", "<A-7>", "<Cmd>BufferGoto 7<CR>", opts)
+			map("n", "<A-8>", "<Cmd>BufferGoto 8<CR>", opts)
+			map("n", "<A-9>", "<Cmd>BufferGoto 9<CR>", opts)
+			map("n", "<A-0>", "<Cmd>BufferLast<CR>", opts)
+
+			-- Pin/unpin buffer
+			map("n", "<A-p>", "<Cmd>BufferPin<CR>", opts)
+
+			-- Close buffer
+			map("n", "<A-c>", "<Cmd>BufferClose<CR>", opts)
 		end,
 	},
 	{

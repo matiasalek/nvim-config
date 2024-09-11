@@ -311,6 +311,8 @@ require("lazy").setup({
 			local dap = require("dap")
 			local dapui = require("dapui")
 
+			require("dapui").setup()
+
 			dap.listeners.before.attach.dapui_config = function()
 				dapui.open()
 			end

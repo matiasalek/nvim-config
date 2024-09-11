@@ -7,8 +7,12 @@ Clean installation from
     brew install neovim
 ---
 **Terminal** -> WezTerm  
-**init.lua** -> contains the kickstarter template with little to no modifications so far.  
-**Plugins installed:**
-`Clangd
-Jdtls
-nvim-autopairs`
+**Things installed using Mason:**
+`clangd
+css-lsp
+html-lsp
+jdtls
+lua-language-server
+pyright
+stylua
+typescript-language-server`

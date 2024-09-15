@@ -486,28 +486,18 @@ require("lazy").setup({
 			capabilities = vim.tbl_deep_extend("force", capabilities, require("cmp_nvim_lsp").default_capabilities())
 
 			local servers = {
-				clangd = {},
 				lua_ls = {
-					-- cmd = {...},
-					-- filetypes = { ...},
-					-- capabilities = {},
 					settings = {
 						Lua = {
 							completion = {
 								callSnippet = "Replace",
 							},
-							-- You can toggle below to ignore Lua_LS's noisy `missing-fields` warnings
-							-- diagnostics = { disable = { 'missing-fields' } },
 						},
 					},
 				},
 			}
 
-			-- Ensure the servers and tools above are installed
-			--  To check the current status of installed tools and/or manually install
-			--  other tools, you can run
 			--    :Mason
-			--
 			--  You can press `g?` for help in this menu.
 			require("mason").setup()
 
@@ -642,7 +632,7 @@ require("lazy").setup({
 		"folke/tokyonight.nvim",
 		priority = 1000,
 		init = function()
-			vim.cmd.colorscheme("tokyonight-moon")
+			vim.cmd.colorscheme("tokyonight-night")
 			vim.cmd.hi("Comment gui=none")
 		end,
 	},

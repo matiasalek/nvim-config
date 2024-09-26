@@ -629,11 +629,11 @@ require("lazy").setup({
 	},
 
 	{
-		"ellisonleao/gruvbox.nvim",
+		"folke/tokyonight.nvim",
 		priority = 1000,
 		init = function()
-			vim.o.background = "dark"
-			vim.cmd([[colorscheme gruvbox]])
+			vim.cmd.colorscheme("tokyonight-moon")
+			vim.cmd.hi("Comment gui=none")
 		end,
 	},
 

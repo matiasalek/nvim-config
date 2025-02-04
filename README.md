@@ -8,9 +8,7 @@ My config and important files in my journey to use Neovim as my main development
 `clangd
 css-lsp
 html-lsp
-jdtls
 lua-language-server
 pyright
 stylua
 typescript-language-server`
-
